@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class BinarySearch {
+	public static int binarySearch(int[] arr, int target) {
+        		int left = 0, right = arr.length - 1;
+        		while (left <= right) {
+            			int mid = left + (right - left) / 2;
+            				if (arr[mid] == target) 
+					return mid;
+            				if (arr[mid] < target) 
+					left = mid + 1;
+            				else right = mid - 1;
+        				}
+        			return -1; 
+    			}
+	public static void main(String[] args) {
+		Scanner ss = new Scanner(System.in);
+		System.out.println("Enter size of Array.");
+		int size = ss.nextInt();
+		int arr[] = new int[size];
+		System.out.println("Enter the elements.");
+		for(int i = 0; i<size; i++) {
+			arr[i] = ss.nextInt();
+			}
+        		System.out.println("Enter the element which u want to search.");
+		int target = ss.nextInt();
+        		int result = binarySearch(arr, target);
+        		System.out.println("Element found at index: " + result);
+    		}
+	}
